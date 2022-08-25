@@ -15,8 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Compulsory1_22H.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="declarations.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="insertionsort.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynArr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubblesort.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
