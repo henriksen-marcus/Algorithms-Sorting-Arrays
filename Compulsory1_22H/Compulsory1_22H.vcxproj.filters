@@ -32,5 +32,17 @@
     <ClInclude Include="bubblesort.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="sortingfunctions.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="radixsort.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mergesort.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="quicksort.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

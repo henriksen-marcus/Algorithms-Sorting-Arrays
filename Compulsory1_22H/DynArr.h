@@ -84,14 +84,15 @@ private:
 	int MaxLength;
 
 public:
-	void operator = (T* repl)
+	// Replace array
+	void operator = (T& repl)
 	{
 		delete[] arr;
-		std::cout << "Size arr after delete:" << sizeof(arr)/sizeof(arr[0]) << endl;
-		cout << "Arry elements: " << arr[0] << " " << arr[2] << endl;
 		arr = repl;
-		std::cout << "Size repl:" << sizeof(repl) / sizeof(repl[0]) << endl;
 	}
+
+	// Access and edit array elements
+	T& operator [] (int i) { return arr[i]; }
 };
 
 

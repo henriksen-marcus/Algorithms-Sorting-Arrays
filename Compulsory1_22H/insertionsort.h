@@ -1,32 +1,22 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
+#include "sortingfunctions.h"
+//#include <Windows.h>
 
 using namespace std;
 
-vector<int> myarr{ 5,4,3,2,1 };
 
-
-/** Swap two array elements' index. */
-inline void swap(vector<int>* arr, int a, int b)
+template <typename T>
+void insertionsort(DynArr<T>& arr)
 {
-	int temp = arr->at(a);
-	arr->at(a) = arr->at(b);
-	arr->at(b) = temp;
-
-	cout << "swapped " << arr->at(b) << " with " << arr->at(a) << endl;
-}
-
-inline void insertionsort(vector<int>& arr)
-{
-
-	for (int i = 0; i < arr.size()-1; i++)
+	for (int i{}; i < arr.Size() - 1; i++)
 	{
-		if (arr[i] > arr[i+1])
+		if (arr[i] > arr[i + 1])
 		{
-			swap(&arr, i, i+1);
+			swap(arr, i, i + 1);
 
+			// Continue pushing the swapped number back until it's in the right position
 			for (int k = i; k > 0; k--)
 			{
 				if (arr[k] > arr[k - 1])
@@ -35,15 +25,10 @@ inline void insertionsort(vector<int>& arr)
 				}
 				else
 				{
-					swap(&arr, k, k - 1);
+					swap(arr, k, k - 1);
 				}
 			}
 		}
 	}
-
-	for (int i = 0; i < arr.size(); i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	cout << endl;
+	cout << "Insertion Sort: Array is sorted." << endl;
 }
