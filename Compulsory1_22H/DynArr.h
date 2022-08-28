@@ -20,6 +20,12 @@ public:
 	DynArr();
 	~DynArr();
 
+	enum SearchAlgorithm
+	{
+		Linear,
+		Binary
+	};
+
 	/**
 	 * \brief Sets all values from 'start' to array end to 0.
 	 * \param start The index to initialize from, inclusive.
@@ -54,7 +60,22 @@ public:
 	  * \param value The item to find.
 	  * \return The item index.
 	  */
-	int Find(T value);
+	int Find(T value, SearchAlgorithm alg);
+
+	/**
+	  * \brief Standard search that checks every array element from start to finish. 
+	  * \param value The item to find.
+	  * \return The item index.-1 if no value is found.
+	  */
+	int LinearSearch(T value);
+
+	/**
+	  * \brief Recursive search that splits the array in half every recursion while performing comparisons.
+	  * \param value The item to find.
+	  * \return The item index. -1 if no value is found.
+	  * \remarks Only works with numbers.
+	  */
+	int BinarySearch(T value, int start, int end);
 
 	/** \return Size of the array. */
 	int Size() const;
@@ -186,9 +207,23 @@ int DynArr<T>::DeleteItem(T value)
 }
 
 template<class T>
-int DynArr<T>::Find(T value)
+int DynArr<T>::Find(T value, SearchAlgorithm alg)
 {
-	// Standard linear search
+	return BinarySearch(value, 0, Size());
+	/*switch (alg)
+	{
+	case LinearSearch:
+		return LinearSearch(value);
+	case BinarySearch:
+		return BinarySearch(value, 0, Size());
+	default:
+		return -1;
+	}*/
+}
+
+template<class T>
+int DynArr<T>::LinearSearch(T value)
+{
 	for (int i{}; i < ArrSize; i++)
 	{
 		if (arr[i] == value)
@@ -196,6 +231,27 @@ int DynArr<T>::Find(T value)
 			return i;
 		}
 	}
+	return -1;
+}
+
+template<class T>
+int DynArr<T>::BinarySearch(T value, int start, int end)
+{
+	int middle = end - start;
+
+	if (arr[middle] == value)
+	{
+		return middle;
+	}
+	else if (arr[middle] < value)
+	{
+		BinarySearch(value, middle + 1, Size());
+	}
+	else
+	{
+		BinarySearch(value, 0, middle - 1);
+	}
+
 	return -1;
 }
 

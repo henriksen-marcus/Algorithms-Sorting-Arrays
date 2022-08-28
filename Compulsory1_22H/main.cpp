@@ -6,7 +6,6 @@ using namespace std;
 
 int main()
 {
-    //int* jsl = new int[3] { 1, 2, 3 };
 
     DynArr<int> myArr;
 
@@ -18,9 +17,13 @@ int main()
     myArr.Print();
 
     //bubblesort(myArr);
-    insertionsort(myArr);
+    //insertionsort(myArr);
+    cout << myArr.Find(4, DynArr<int>::Binary);
 
-    myArr.Print();
+   // myArr.Print();
+
+    //int a = 14;
+    //std::cout << (a >> 1);
 
 
     return 0;
