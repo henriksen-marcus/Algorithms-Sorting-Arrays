@@ -26,6 +26,8 @@ public:
 		Binary
 	};
 
+	string Alphabet = "abcdefghijklmnopqrstuvwxyz";
+
 	/**
 	 * \brief Sets all values from 'start' to array end to 0.
 	 * \param start The index to initialize from, inclusive.
@@ -106,11 +108,11 @@ private:
 
 public:
 	// Replace array
-	void operator = (T& repl)
+	/*void operator = (T& repl)
 	{
 		delete[] arr;
 		arr = repl;
-	}
+	}*/
 
 	// Access and edit array elements
 	T& operator [] (int i) { return arr[i]; }
@@ -142,7 +144,7 @@ void DynArr<T>::Init(int start)
 {
 	for (int i = start; i < MaxLength; i++)
 	{
-		arr[i] = NULL;
+		arr[i] = T();
 	}
 }
 
@@ -180,7 +182,6 @@ int DynArr<T>::Delete(int i)
 	T* TempArr = new T[MaxLength - 1];
 	int j{}; // Temporary iterator
 	
-	cout << "Delete request: " << i << endl;
 	for (int k{}; k < MaxLength; k++, j++)
 	{
 		if (k == i)
@@ -270,6 +271,40 @@ void DynArr<T>::Print()
 	}
 	cout << endl;
 }
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 template<class T>
 T DynArr<T>::At(int i)

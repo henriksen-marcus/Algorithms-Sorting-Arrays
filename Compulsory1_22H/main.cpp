@@ -7,23 +7,25 @@ using namespace std;
 int main()
 {
 
-    DynArr<int> myArr;
-
-    myArr.Add(6);
-    myArr.Add(4);
-    myArr.Add(9);
-    myArr.Add(2);
-    myArr.Add(1);
-    myArr.Print();
-
-    //bubblesort(myArr);
-    //insertionsort(myArr);
-    cout << myArr.Find(4, DynArr<int>::Binary);
+    
 
    // myArr.Print();
 
     //int a = 14;
     //std::cout << (a >> 1);
+    string a = "das";
+
+    DynArr<char*> testarr;
+    std::string str = "meisam";
+    testarr.Add(&str[0]);
+    std::string str2 = "food";
+    testarr.Add(&str2[0]);
+    testarr.Add(&a[0]);
+
+
+    //testarr.Print();
+    insertionsort(testarr);
+    testarr.Print();
 
 
     return 0;
