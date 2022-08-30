@@ -56,16 +56,16 @@ public:
 	 * \param value The value/item to delete.
 	 * \return The new array size.
 	 */
-	 int DeleteItem(T value);
+	int DeleteItem(T value);
 
-	 /**
-	  * \param value The item to find.
-	  * \return The item index.
-	  */
+	/**
+	 * \param value The item to find.
+	 * \return The item index.
+	 */
 	int Find(T value, SearchAlgorithm alg);
 
 	/**
-	  * \brief Standard search that checks every array element from start to finish. 
+	  * \brief Standard search that checks every array element from start to finish.
 	  * \param value The item to find.
 	  * \return The item index.-1 if no value is found.
 	  */
@@ -181,7 +181,7 @@ int DynArr<T>::Delete(int i)
 {
 	T* TempArr = new T[MaxLength - 1];
 	int j{}; // Temporary iterator
-	
+
 	for (int k{}; k < MaxLength; k++, j++)
 	{
 		if (k == i)
@@ -272,7 +272,7 @@ void DynArr<T>::Print()
 	cout << endl;
 }
 
-	
+
 
 
 
