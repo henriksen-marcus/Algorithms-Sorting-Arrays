@@ -1,4 +1,5 @@
 #include "declarations.h"
+#include <Windows.h>
 
 using namespace std;
 
@@ -27,6 +28,16 @@ int main()
     insertionsort(testarr);
     testarr.Print();
 
+<<<<<<< Updated upstream
+=======
+    DynArr<int> myArr;
+    myArr.Add(76); myArr.Add(8); myArr.Add(0); myArr.Add(21); myArr.Add(15); myArr.Add(91); myArr.Add(6); myArr.Add(2);
+    myArr.Print();
+    mergesort(myArr, 0, myArr.Size()-1);
+    cout << "sort completed" << endl;
+    //Sleep(2000);
+    //myArr.Print();
+>>>>>>> Stashed changes
 
     return 0;
 }
