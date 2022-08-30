@@ -57,7 +57,7 @@ void stringsort(DynArr<T>& arr)
 {
 	for (int i{}; i < arr.Size() - 1; i++)
 	{
-		for (int j{}; j < arr[i].size(); j++)
+		for (int j{}; j < arr[i].Size(); j++)
 		{
 			if (arr[i][j] == arr[i + 1][j])
 			{
