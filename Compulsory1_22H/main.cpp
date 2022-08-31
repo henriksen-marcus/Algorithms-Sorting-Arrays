@@ -7,8 +7,6 @@ using namespace std;
 int main()
 {
 
-
-
     //DynArr<char*> testarr;
     //std::string str = "meisam";
     //testarr.Add(&str[0]);
@@ -22,9 +20,23 @@ int main()
     //testarr.Print();
 
     DynArr<int> myArr;
-    myArr.Add(76); myArr.Add(8); myArr.Add(0); myArr.Add(21); myArr.Add(15); myArr.Add(91); myArr.Add(6); myArr.Add(2);
+    myArr.Add(76); 
+    myArr.Add(8); 
+    myArr.Add(0); 
+    myArr.Add(21); 
+    myArr.Add(15); 
+    myArr.Add(91); 
+    myArr.Add(6); 
+    myArr.Add(2);
+    myArr.Add(9);
+
+    
+
     myArr.Print();
-    mergesort(myArr, 0, myArr.Size() - 1);
+    selectionsort(myArr);
+    myArr.Print();
+
+    invert(myArr);
     myArr.Print();
 
     return 0;

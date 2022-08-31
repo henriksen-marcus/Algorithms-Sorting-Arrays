@@ -16,7 +16,7 @@ void stringsort(DynArr<T>& arr);
 template <typename T>
 void insertionsort(DynArr<T>& arr)
 {
-	if (typeid(arr[0]) == typeid(char*))
+	if (typeid(arr[0]) == typeid(string*))
 	{
 		stringsort(arr);
 	}

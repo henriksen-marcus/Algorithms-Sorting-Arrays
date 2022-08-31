@@ -135,8 +135,10 @@
     <ClInclude Include="DynArr.h" />
     <ClInclude Include="insertionsort.h" />
     <ClInclude Include="mergesort.h" />
+    <ClInclude Include="mergesort_print.h" />
     <ClInclude Include="quicksort.h" />
     <ClInclude Include="radixsort.h" />
+    <ClInclude Include="selectionsort.h" />
     <ClInclude Include="sortingfunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
