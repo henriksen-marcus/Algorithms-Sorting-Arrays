@@ -7,6 +7,7 @@
 #include "insertionsort.h"
 #include "mergesort.h"
 #include "selectionsort.h"
+#include "quicksort.h"
 
 
 template<typename T>

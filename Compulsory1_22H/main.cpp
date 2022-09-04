@@ -33,7 +33,7 @@ int main()
     
 
     myArr.Print();
-    selectionsort(myArr);
+    quicksort(myArr);
     myArr.Print();
 
     invert(myArr);

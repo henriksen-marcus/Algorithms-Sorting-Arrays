@@ -2,10 +2,16 @@
 
 #include <iostream>
 
+/**
+ * \brief Stacks two arrays together like a deck of cards. Sorts the items in correct order.
+ * \param arr The original array.
+ * \param start The first index of the left half.
+ * \param middle The middle of the section, left inclusive.
+ * \param end The last index of the right half.
+ */
 template<class T>
 void merge(DynArr<T>& arr, int start, int middle, int end)
 {
-
 	// Size of left temp array
 	int size1 = middle - start + 1;
 	// Size of right temp array
@@ -21,7 +27,7 @@ void merge(DynArr<T>& arr, int start, int middle, int end)
 
 	int index0 = start, index1{}, index2{};
 
-	// Run no more iterations than the smallest array size
+	// Run no more iterations than the smallest array size (avoid going out of range)
 	// index0 = index of original (to-be merged) array
 	while (index1 < size1 && index2 < size2)
 	{
@@ -54,6 +60,7 @@ void merge(DynArr<T>& arr, int start, int middle, int end)
 		}
 	}
 
+	// Clear memory
 	delete[] leftArr;
 	delete[] rightArr;
 }
@@ -62,6 +69,7 @@ void merge(DynArr<T>& arr, int start, int middle, int end)
 template<class T>
 void mergesort(DynArr<T>& arr, int start, int end)
 {
+	// Ensures we stop splitting when we reach an array size of one
 	if (start < end)
 	{
 		int middle = (start + end) / 2;
