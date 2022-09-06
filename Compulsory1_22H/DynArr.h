@@ -1,9 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
+//#include <string>
+//#include <algorithm>
 
 using namespace std;
 
@@ -20,13 +19,7 @@ public:
 	DynArr();
 	~DynArr();
 
-	enum SearchAlgorithm
-	{
-		Linear,
-		Binary
-	};
-
-	string Alphabet = "abcdefghijklmnopqrstuvwxyz";
+	//string Alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 	/**
 	 * \brief Sets all values from 'start' to array end to 0.
@@ -34,15 +27,16 @@ public:
 	 */
 	void Init(int start);
 
-	/**
-	 * \brief Adds an item to the end of the array.
-	 * \param item The item to add.
-	 * \return The new array size.
+	/** 
+	 * \brief Adds an item to the end of the array. 
+	 * \param item The item to add. 
 	 */
-	int Add(T item);
+	int Push(T item);
 
-	/** Adds an empty slot at the end of the array. */
-	void Expand();
+	//int Push(T inputArray[]);
+
+	/* Removes an item at the end of the array. */
+	int Pop();
 
 	/**
 	 * \brief Deletes the element at specified index. Shrinks array size after deletion.
@@ -62,7 +56,7 @@ public:
 	 * \param value The item to find.
 	 * \return The item index.
 	 */
-	int Find(T value, SearchAlgorithm alg);
+	int Find(T value);
 
 	/**
 	  * \brief Standard search that checks every array element from start to finish.
@@ -100,10 +94,15 @@ public:
 	T* arr;
 
 private:
-	/** The amount of elements that are != NULL. */
+	/* Adds an empty slot at the end of the array. */
+	void Expand();
+
+	int Expand(int amount);
+
+	/* The amount of elements that are != NULL. */
 	int ArrSize;
 
-	/** The length of the array. */
+	/* The length of the array. */
 	int MaxLength;
 
 public:
@@ -150,11 +149,31 @@ void DynArr<T>::Init(int start)
 
 
 template<class T>
-int DynArr<T>::Add(T item)
+int DynArr<T>::Push(T item)
 {
 	Expand();
 	arr[ArrSize - 1] = item; // Insert the new item
 	return ArrSize;
+}
+
+//template<class T>
+//int DynArr<T>::Push(T inputArray[])
+//{
+//	/*int inputArrSize = sizeof(inputArray) / sizeof(inputArray[0]);
+//	Expand(inputArrSize);
+//
+//	for (int i{}; i < MaxLength; i++)
+//	{
+//		arr[]
+//	}
+//	return 0;*/
+//}
+
+
+template<class T>
+int DynArr<T>::Pop()
+{
+	return Delete(arr.Size() - 1);
 }
 
 template<class T>
@@ -162,7 +181,6 @@ void DynArr<T>::Expand()
 {
 	// Create temp array with new +1 length to hold old data
 	T* TempArr = new T[++MaxLength];
-	//std::copy(arr, arr + ArrSize, TempArr);
 
 	// Copy over elements to temp array
 	for (int i{}; i < MaxLength; i++)
@@ -174,6 +192,30 @@ void DynArr<T>::Expand()
 	arr = TempArr;
 
 	Init(ArrSize++);
+}
+
+template<class T>
+int DynArr<T>::Expand(int amount)
+{
+	MaxLength += amount;
+
+	// Create temp array with new length to hold old data
+	T* TempArr = new T[MaxLength];
+
+	// Copy over elements to temp array
+	for (int i{}; i < ArrSize; i++)
+	{
+		TempArr[i] = arr[i];
+	}
+
+	delete[] arr;
+	arr = TempArr;
+
+	Init(MaxLength - 1);
+
+	int temp = ArrSize;
+	ArrSize = MaxLength;
+	return temp;
 }
 
 template<class T>
@@ -208,9 +250,9 @@ int DynArr<T>::DeleteItem(T value)
 }
 
 template<class T>
-int DynArr<T>::Find(T value, SearchAlgorithm alg)
+int DynArr<T>::Find(T value)
 {
-	return BinarySearch(value, 0, Size());
+	return BinarySearch(value, 0, Size()-1);
 	/*switch (alg)
 	{
 	case LinearSearch:
@@ -238,7 +280,7 @@ int DynArr<T>::LinearSearch(T value)
 template<class T>
 int DynArr<T>::BinarySearch(T value, int start, int end)
 {
-	int middle = end - start;
+	int middle = (start + end) >> 1;
 
 	if (arr[middle] == value)
 	{
@@ -246,11 +288,11 @@ int DynArr<T>::BinarySearch(T value, int start, int end)
 	}
 	else if (arr[middle] < value)
 	{
-		BinarySearch(value, middle + 1, Size());
+		return BinarySearch(value, middle + 1, end);
 	}
 	else
 	{
-		BinarySearch(value, 0, middle - 1);
+		return BinarySearch(value, start, middle - 1);
 	}
 
 	return -1;

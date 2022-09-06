@@ -35,9 +35,6 @@
     <ClInclude Include="sortingfunctions.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="radixsort.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="mergesort_print.h">
       <Filter>Resource Files</Filter>
     </ClInclude>

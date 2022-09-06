@@ -6,31 +6,16 @@ using namespace std;
 
 int main()
 {
-
-    //DynArr<char*> testarr;
-    //std::string str = "meisam";
-    //testarr.Add(&str[0]);
-    //std::string str2 = "food";
-    //testarr.Add(&str2[0]);
-    //testarr.Add(&a[0]);
-
-
-    ////testarr.Print();
-    //insertionsort(testarr);
-    //testarr.Print();
-
     DynArr<int> myArr;
-    myArr.Add(76); 
-    myArr.Add(8); 
-    myArr.Add(0); 
-    myArr.Add(21); 
-    myArr.Add(15); 
-    myArr.Add(91); 
-    myArr.Add(6); 
-    myArr.Add(2);
-    myArr.Add(9);
-
-    
+    myArr.Push(76); 
+    myArr.Push(8); 
+    myArr.Push(0); 
+    myArr.Push(21); 
+    myArr.Push(15); 
+    myArr.Push(91); 
+    myArr.Push(6); 
+    myArr.Push(2);
+    myArr.Push(9);
 
     myArr.Print();
     quicksort(myArr);
@@ -38,6 +23,8 @@ int main()
 
     invert(myArr);
     myArr.Print();
+
+    printf("Index: %d", myArr.Find(21));
 
     return 0;
 }
